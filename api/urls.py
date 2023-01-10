@@ -7,5 +7,7 @@ urlpatterns=[
     path('create-todo/',views.TodoAPIView.as_view(),name="create-todo"),
     path('unique-todo/<str:pk>',views.TodoSpecifcAPIView.as_view(),name="category"),
     path('unique-category/<str:pk>',views.CategorySpecificAPIView.as_view(),name="category"),
+    path('user-category/',views.CategoryUserSpecifcAPIView.as_view(),name="user-category"),
+    path('user-todo/',views.TodoUserSpecifcAPIView.as_view(),name="user-todo"),
 
 ]

@@ -7,8 +7,14 @@ from api.models import Category,ToDo
 from rest_framework.parsers import MultiPartParser
 import cloudinary.uploader
 from django.shortcuts import get_object_or_404
+from authentication.models import User
 
-# Create your views here.
+
+def userExists(id):
+    if User.objects.filter(id=id).exists():
+        return True
+    return False
+
 class CategoryAPIView(CreateAPIView):
     serializer_class=CategorySerializer
     permission_classes=(IsAuthenticated,)
@@ -110,3 +116,30 @@ class TodoSpecifcAPIView(CreateAPIView):
             return Response("Todo is deleted sucessfully!",status=status.HTTP_200_OK)
         else:
             return Response({"message":"Todo will this id doesn't exists!"},status=status.HTTP_400_BAD_REQUEST)
+
+class CategoryUserSpecifcAPIView(CreateAPIView):
+    serializer_class=CategorySerializer
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        if(userExists(request.user.id)):
+            category=Category.objects.filter(user=request.user.id)
+            serializer=self.serializer_class(instance=category,many=True)
+            if(len(serializer.data)<1):
+                return Response({"message":"User dont have any category"},status=status.HTTP_200_OK)    
+            return Response(serializer.data,status=status.HTTP_200_OK)
+        else:
+            return Response({"message":"User not exists"},status=status.HTTP_404_NOT_FOUND)
+
+class TodoUserSpecifcAPIView(CreateAPIView):
+    serializer_class=TodoSerializer
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        if(userExists(request.user.id)):
+            userID=request.GET['userID']
+            todo=ToDo.objects.filter(user=userID)
+            serializer=self.serializer_class(instance=todo,many=True)
+            if(len(serializer.data)<1):
+                return Response({"message":"User dont have any todo"},status=status.HTTP_404_NOT_FOUND)    
+            return Response(serializer.data,status=status.HTTP_200_OK)
+        else:
+            return Response({"message":"User not exists"},status=status.HTTP_404_NOT_FOUND)
