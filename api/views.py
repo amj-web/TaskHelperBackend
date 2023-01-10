@@ -183,3 +183,17 @@ class ToDoCurrentUserDeleteAPIView(CreateAPIView):
             return Response({"message":"All tasks are deleted successfully!"},status=status.HTTP_200_OK)
         else:
             return Response({"message":"User not exists"},status=status.HTTP_404_NOT_FOUND)
+
+class CategoryCurrentUserDeleteAPIView(CreateAPIView):
+    serializer_class=CategorySerializer
+    permission_classes=(IsAuthenticated,)
+    queryset = Category.objects.all()
+
+    def delete(self, request):
+        if(userExists(request.user.id)):
+            user = request.user
+            category = Category.objects.filter(user=user)
+            category.delete()
+            return Response({"message":"All categories are deleted successfully!"},status=status.HTTP_200_OK)
+        else:
+            return Response({"message":"User not exists"},status=status.HTTP_404_NOT_FOUND)
