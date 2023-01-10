@@ -150,7 +150,7 @@ class CategoryCurrentUserAPIView(CreateAPIView):
     def get(self,request):
         if(userExists(request.user.id)):
             category=Category.objects.filter(user=request.user.id)
-            serializer=CategorySerializer(instance=category,many=True)
+            serializer=self.serializer_class(instance=category,many=True)
             if(len(serializer.data)<1):
                 return Response({"message":"User dont have any category"},status=status.HTTP_200_OK)    
             return Response(serializer.data,status=status.HTTP_200_OK)
@@ -163,7 +163,7 @@ class ToDoCurrentUserAPIView(CreateAPIView):
     def get(self,request):
         if(userExists(request.user.id)):
             Todo=ToDo.objects.filter(user=request.user.id)
-            serializer=TodoSerializer(instance=Todo,many=True)
+            serializer=self.serializer_class(instance=Todo,many=True)
             if(len(serializer.data)<1):
                 return Response({"message":"User dont have any Todo"},status=status.HTTP_200_OK)    
             return Response(serializer.data,status=status.HTTP_200_OK)
