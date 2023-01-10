@@ -169,3 +169,17 @@ class ToDoCurrentUserAPIView(CreateAPIView):
             return Response(serializer.data,status=status.HTTP_200_OK)
         else:
             return Response({"message":"User not exists"},status=status.HTTP_404_NOT_FOUND)
+
+class ToDoCurrentUserDeleteAPIView(CreateAPIView):
+    serializer_class=TodoSerializer
+    permission_classes=(IsAuthenticated,)
+    queryset = ToDo.objects.all()
+
+    def delete(self, request):
+        if(userExists(request.user.id)):
+            user = request.user
+            tasks = ToDo.objects.filter(user=user)
+            tasks.delete()
+            return Response({"message":"All tasks are deleted successfully!"},status=status.HTTP_200_OK)
+        else:
+            return Response({"message":"User not exists"},status=status.HTTP_404_NOT_FOUND)
