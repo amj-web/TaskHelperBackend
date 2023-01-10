@@ -9,5 +9,7 @@ urlpatterns=[
     path('unique-category/<str:pk>',views.CategorySpecificAPIView.as_view(),name="category"),
     path('user-category/',views.CategoryUserSpecifcAPIView.as_view(),name="user-category"),
     path('user-todo/',views.TodoUserSpecifcAPIView.as_view(),name="user-todo"),
+    path('current-user-category/',views.CategoryCurrentUserAPIView.as_view(),name="current-user-category"),
+    path('current-user-todo/',views.ToDoCurrentUserAPIView.as_view(),name="current-user-todo"),
 
 ]

@@ -143,3 +143,29 @@ class TodoUserSpecifcAPIView(CreateAPIView):
             return Response(serializer.data,status=status.HTTP_200_OK)
         else:
             return Response({"message":"User not exists"},status=status.HTTP_404_NOT_FOUND)
+
+class CategoryCurrentUserAPIView(CreateAPIView):
+    serializer_class=CategorySerializer
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        if(userExists(request.user.id)):
+            category=Category.objects.filter(user=request.user.id)
+            serializer=CategorySerializer(instance=category,many=True)
+            if(len(serializer.data)<1):
+                return Response({"message":"User dont have any category"},status=status.HTTP_200_OK)    
+            return Response(serializer.data,status=status.HTTP_200_OK)
+        else:
+            return Response({"message":"User not exists"},status=status.HTTP_404_NOT_FOUND)
+
+class ToDoCurrentUserAPIView(CreateAPIView):
+    serializer_class=TodoSerializer
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        if(userExists(request.user.id)):
+            Todo=ToDo.objects.filter(user=request.user.id)
+            serializer=TodoSerializer(instance=Todo,many=True)
+            if(len(serializer.data)<1):
+                return Response({"message":"User dont have any Todo"},status=status.HTTP_200_OK)    
+            return Response(serializer.data,status=status.HTTP_200_OK)
+        else:
+            return Response({"message":"User not exists"},status=status.HTTP_404_NOT_FOUND)
