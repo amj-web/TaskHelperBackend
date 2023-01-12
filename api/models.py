@@ -8,7 +8,7 @@ TASK_STATUS = [("OPEN", "Open"), ("CLOSED", "Closed"), ("IN-PROGRESS", "InProgre
 PRIORITY_STATUS= [("LOW", "Low"), ("MEDIUM", "Medium"), ("HIGH", "High"), ("OPTIONAL", "Optional")]
 
 class Category(TrackingModels):
-    name =models.CharField(default='Learning',max_length=150,unique=True,null=False)
+    name =models.CharField(default='Chess',max_length=150,unique=True,null=False)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):
          return self.name
