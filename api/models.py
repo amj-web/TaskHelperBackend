@@ -7,12 +7,14 @@ from cloudinary.models import CloudinaryField
 TASK_STATUS = [("OPEN", "Open"), ("CLOSED", "Closed"), ("IN-PROGRESS", "InProgress"), ("BLOCKED", "Blocked"),("COMPLETED","Completed")]
 PRIORITY_STATUS= [("LOW", "Low"), ("MEDIUM", "Medium"), ("HIGH", "High"), ("OPTIONAL", "Optional")]
 
+# Category model to save categories
 class Category(TrackingModels):
-    name =models.CharField(default='Chess',max_length=150,unique=True,null=False)
+    name =models.CharField(default='xnb',max_length=150,unique=True,null=False)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):
          return self.name
 
+# Todo model for saving the todos
 class ToDo(TrackingModels):
 
      title = models.CharField(max_length=150,blank=False,unique=True,null=False)

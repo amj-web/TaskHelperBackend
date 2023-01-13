@@ -1,6 +1,7 @@
 from api import views
 from django.urls import path
 
+# all urls are defined here
 
 urlpatterns=[
     path('create-category/',views.CategoryAPIView.as_view(),name="create-category"),
