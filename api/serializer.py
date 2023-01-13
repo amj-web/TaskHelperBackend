@@ -14,4 +14,4 @@ class TodoSerializer(ModelSerializer):
     category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
     class Meta:
         model=ToDo
-        fields=('id','title','description','dueDate','image','status','priority','user','category')
+        fields=('id','title','description','assigned','dueDate','image','status','priority','user','category')
