@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from api.views import WebApplicationMessage
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/auth/",include('authentication.urls')),
     path("api/todo/",include('api.urls')),
+    path("",WebApplicationMessage.as_view(), name='root')
+
 ]

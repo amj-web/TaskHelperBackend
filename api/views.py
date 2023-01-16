@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from rest_framework.generics import CreateAPIView
 from api.serializer import CategorySerializer,TodoSerializer
 from rest_framework.permissions import IsAuthenticated
@@ -8,6 +9,7 @@ from rest_framework.parsers import MultiPartParser
 import cloudinary.uploader
 from django.shortcuts import get_object_or_404
 from authentication.models import User
+from rest_framework.views import APIView
 
 
 def userExists(id):
@@ -17,6 +19,17 @@ def userExists(id):
         # Checking if a user with the given id exists in the database
         return True
     return False
+# call that class on root url
+class WebApplicationMessage(CreateAPIView):
+    authentication_classes=[]
+    serializer_class=CategorySerializer
+    def get(self, request):
+        responseData = {
+        "message": "Yes, Backend DRF is running!",
+        "meta-data":{"meta":"developed for TaskHelper Frontend",
+        "status":status.HTTP_200_OK}
+        }
+        return JsonResponse(responseData)
 
 class CategoryAPIView(CreateAPIView):
     # View class for handling the creation of categories
