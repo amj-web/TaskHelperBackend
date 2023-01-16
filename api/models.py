@@ -9,7 +9,7 @@ PRIORITY_STATUS= [("LOW", "Low"), ("MEDIUM", "Medium"), ("HIGH", "High"), ("OPTI
 
 # Category model to save categories
 class Category(TrackingModels):
-    name =models.CharField(default='xnb',max_length=150,unique=True,null=False)
+    name =models.CharField(default='zyn',max_length=150,unique=False,null=False)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):
          return self.name
