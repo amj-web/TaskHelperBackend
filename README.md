@@ -1,16 +1,37 @@
-# Time Keeper
+# The TaskHelper Todo List
 
-The Time Keeper is a productivity app designed to help the user get organized by allowing them create tasks and ToDo lists. 
+The TaskHelper Todo List is a productivity app designed to help the user get organized by allowing them to create tasks and ToDo lists. 
 
 ## Technologies Used
-* The Front End of the application is built using HTML, CSS, JavaScript, React.js and Bootstrap.js
-* The Back End is handled with Django REST Framework and ElephantSQL 
-* It has been deployed to Heroku. Here is a [link](https://.herokuapp.com/). 
+Our productivity app is built using a variety of technologies, including:
 
-![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
+- HTML, CSS, and JavaScript for the frontend
+- React.js for building the user interface and managing the application's state
+- Django REST framework for building the backend API
+- ElephantSQL as the primary database management system
+- Cloudinary for image and file storage
+- JWT to securly share information
+- Heroku for deployment
+
+The live link can be found [here](https://task-helper.herokuapp.com/). 
+
+## Website across different platforms
+![Responsice Mockup](src/assets/images/screenshots/responsivemockup.png)
+
 
 ## User Stories
-**First-Time Visitor Goals - As a first-time user, who has not created an account, I want to be able to:**
+
+- As a user, I want to be able to create and manage tasks so that I can stay organized and on top of my to-do list.
+- As a user, I want to be able to set deadlines for my tasks so that I can prioritize and plan my time effectively.
+- As a user, I want to be able to categorize my tasks into different projects or groups so that I can easily find and access them.
+-As a user, I want to be able to mark tasks as complete or incomplete so that I can track my progress and stay motivated.
+
+###### User story functionality I would like to add in the future
+- As a user, I want to be able to set reminders for my tasks so that I don't forget to complete them.
+- As a user, I want to be able to view my tasks in a calendar view so that I can easily plan my week or month.
+- As a user, I want to be able to share my task lists with others so that we can collaborate on projects together.
+
+**First-Time Visitor Goals - As a first-time user, who has not created an account, I want to be able to:
 * Understand what the purpose of the application is and how to use it.  
 * Create an account. 
 
@@ -24,147 +45,217 @@ The Time Keeper is a productivity app designed to help the user get organized by
 * Filter tasks based on category and priority 
 
 **Site Admin Goals - As an administrator, I want to be able to:**
-* Create, Edit and delete my own and users tasks
-* Manage and authenticate user's tasks
+* Create, Edit and delete my own and users' tasks
+* Manage and authenticate user tasks
 
-## Features 
+##  Design
+I wanted to create a design that is both visually pleasing and functional, that helps users stay focused and motivated. The simplicity of the design allows users to navigate through the application with ease, and quickly access the features they need to get their tasks done efficiently. 
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+**Wireframes**
+
+* [Home Page](src/assets/images/wireframes/Home.png)
+* [Home Page With Tasks](src/assets/images/wireframes/homewtask.png)
+* [Login](src/assets/images/wireframes/Login.png)
+* [Register](/src/assets/images/wireframes/Register.png)
+* [Create New Task](src/assets/images/wireframes/CreateANewTask.png)
+* [viewtask](src/assets/images/wireframes/viewtask.png)
 
 ### Existing Features
 
 - __Navigation Bar__
 
-  - Featured on all three pages, the full responsive navigation bar includes links to the Logo, Home page, Gallery and Sign Up page and is identical in each page to allow for easy navigation.
+  - Featured on all three pages, the full responsive navigation bar includes links to the Home page, Categories, Create New Task, Documentation and of course a Log Out button it is identical on each page to allow for easy navigation.
   - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
 
-![Nav Bar](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
+![Nav Bar](src/assets/images/screenshots/Navbar.png)
 
-- __The landing page image__
+- __Home Page__
 
-  - The landing includes a photograph with text overlay to allow the user to see exactly which location this site would be applicable to. 
-  - This section introduces the user to Love Running with an eye catching animation to grab their attention
+  - If the user is already register the home page is where they can see their on going tasks. 
+  - If the user is not logged or register it displays an imput for them to do so. 
+  - If the user has no task it displays a message congratulating them on having nothing to do. 
+  - Each of the tasks has CRUD functionality where the user can view, update and delete thier tasks
+  - Also displays information for each task such as state, category, priority and due date. 
 
-![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+![Home Page](src/assets/images/screenshots/homewtask.png)
 
-- __Club Ethos Section__
+![Home Page](src/assets/images/screenshots/Login.png)
 
-  - The club ethos section will allow the user to see the benefits of joining the Love Running meetups, as well as the benefits of running overall. 
-  - This user will see the value of signing up for the Love Running meetups. This should encourage the user to consider running as their form of exercise. 
+![Home Page](src/assets/images/screenshots/Home.png)
 
-![Club Ethos](https://github.com/lucyrush/readme-template/blob/master/media/love_running_ethos.png)
+- __View Task__
 
-- __Meetup Times section__
+  - If the user clicks on the view button it will take them here where they can see all the information of their task. 
+  - There is download button where the user can download files related to their task. 
 
-  - This section will allow the user to see exactly when the meetups will happen, where they will be located and how long the run will be in kilometers. 
-  - This section will be updated as these times change to keep the user up to date. 
+  ![View](src/assets/images/screenshots/ViewTask.png)
 
-![Meetup Times](https://github.com/lucyrush/readme-template/blob/master/media/love_running_times.png)
+  - __Update Task__
 
-- __The Footer__ 
+  - Here the user can update their tasks
 
-  - The footer section includes links to the relevant social media sites for Love Running. The links will open to a new tab to allow easy navigation for the user. 
-  - The footer is valuable to the user as it encourages them to keep connected via social media
+  ![Update](src/assets/images/screenshots/updatetask.png)
 
-![Footer](https://github.com/lucyrush/readme-template/blob/master/media/love_running_footer.png)
+- __Categories__
 
-- __Gallery__
+  - The Categories Page is where the user creates a category in which task have to assigned. 
+  - Once a new catergory has been added it can be edited or deleted. 
 
-  - The gallery will provide the user with supporting images to see what the meet ups look like. 
-  - This section is valuable to the user as they will be able to easily identify the types of events the organisation puts together. 
+![Categories](src/assets/images/screenshots/AddNewCategory.png)
+![Categories](src/assets/images/screenshots/CategoryDeleteNot.png)
 
-![Gallery](https://github.com/lucyrush/readme-template/blob/master/media/love_running_gallery.png)
+- __New Tasks__
 
-- __The Sign Up Page__
+  - This section will allow the user to create new tasks and assign them properties as follows:  
+  - Assign a title
+  - Give a description of the task
+  - Add Task related files
+  - Set a Due Date
+  - Assign and owner of the task
+  - Assign the Category
+  - Assign the priority to High, Medium or Low
+  - Change the state of the task to Open, In Progess or Completed
 
-  - This page will allow the user to get signed up to Love Running to start their running journey with the community. The user will be able specify if they would like to take part in road, trail or both types of running. The user will be asked to submit their full name and email address. 
+![New Tasks](src/assets/images/screenshots/CreateaNewTask.png)
 
-![Sign Up](https://github.com/lucyrush/readme-template/blob/master/media/love_running_signup.png)
+- __Docs.__ 
 
-For some/all of your features, you may choose to reference the specific project files that implement them.
+  - Here I intend to put information found here in the readme. But due to time constraints is only has Lorem Ipsun dummy text. 
+  - The side menu for navigating the documentation does work as does the hide menu functionality
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+![Docs](src/assets/images/screenshots/docs.png)
+
+- __Login and Register__
+
+  - Is where the user logs in or registers new accounts.  
+
+![login](src/assets/images/screenshots/Login.png)
+![Register](src/assets/images/screenshots/Register.png)
 
 ### Features Left to Implement
 
-- Another feature idea
+- A calander view to see tasks in days, weeks, months
+- notifications of uncoming tasks
 
-## Design
+## Testing
 
-I wanted the home page to be dark and atmospheric to try and replicate walking into a swanky cocktail bar. 
-In contrast the drinks page is light. I want the pictures of the cocktails to be the first thing that catches the users eye. I feel that it also encourages the user
-to take and/or post beautiful pictures of their own cocktails. 
+## Manual Tests
+### Login Form Submission
 
-I chose to use Inter font from [Google Fonts](https://fonts.google.com/specimen/Inter) as it is easy to read while having a modern sleek look. 
+| Test | Method | Expected Outcome | Result |
+| ---- | ------ | ---------------- | ------ |
+| Login Form | Submit empty form | Form doesn't submit, and displays error message| Pass |
+| Login Form | Enter invalid Username | Form doesn't submit, and displays error message | Pass |
+| Login Form | Enter User login credentials | Form doesn't submit, and displays error message | Pass | 
+| Submit link | Click on link | User is redirected to category page | Pass | 
 
-**Wireframes**
+ ### Registration Form Submission (Register Page)
 
-* [Home Page](static/images/home-wf.png)
-* [Register Page](static/images/register-wf.png)
-* [Drinks Page](static/images/drinks-wf.png)
-* [Create New Post](static/images/create-new-wf.png)
-* [Edit Post](static/images/edit-wf.png)
-* [Mobile Home Page](static/images/home-phone-wf.png)
-* [Mobile Drinks Page](static/images/drinks-phone-wf.png)
-* [Mobile New Post](static/images/new-post-phone-wf.png)
-* [Mobile Register](static/images/register-phone-wf.png)
-* [Mobie Sign In](static/images/sign-in-phone-wf.png)
+| Test | Method | Expected Outcome | Result |
+| - | - | - | - |
+| Registration Form | Try to submit empty form | Form doesn't submit, and displays error message | Pass |
+| Registration Form | Try to submit a form where a username already exists | Form doesn't submit, and displays error message | Pass |
+| Email input | Try to enter an invalid email address or random numbers, words etc. | Form doesn't submit, and displays error message | Pass |
+| Login link | Click on link | User is redirected to Login Page | Pass |
+| Registration Form | Create a new user | Success message displays as user is redirected to Login Page | Pass |
 
-## Testing 
+### Update Task
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your project’s features and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+| Test | Method | Expected Outcome | Result |
+| ---- | ------ | ---------------- | ------ |
+| Attempt to submit form without changing anything | Submit form without making any changes | Form doesn't submit, and displays error message | Fail |
+| Cancling the update | click on link| Takes user back to Task page | Pass |
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+### Deleting Tasks
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+| Test | Method | Expected Outcome | Result |
+| ---- | ------ | ---------------- | ------ |
+| Delete Task| Click on button | Warning alert asking is user is sure | Pass |
+| Delete Successful Message | click yes on delete a task | Task successfully delted alert | Pass |
+| Cancel Delete  | Click no on alert | Alert removed and nothing happens | Pass |
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+### Creating New Tasks
+
+| Test | Method | Expected Outcome | Result |
+| ---- | ------ | ---------------- | ------ |
+| Title | Try to submit empty form | Form doesn't submit, and displays error message | Pass |
+| Description | Try to submit empty form | Form doesn't submit, and displays error message  | Pass |
+| Files  | Try to submit empty form | Form doesn't submit, and displays error message  | Pass |
+| Date  | Try to submit empty form | Form doesn't submit, and displays error message  | Pass |
+| Owners | Try to submit empty form | Form doesn't submit, and displays error message  | Pass |
+| Priority | Try to submit empty form | Form doesn't submit, and displays error message  | Pass |
+| State | Try to submit empty form | Form doesn't submit, and displays error message  | Pass | Click no on alert | Form doesn't submit, and displays error message  | Pass |
+| Category | Try to submit empty form | Form doesn't submit, and displays error message  | Pass |
+
+### Creating New Category
+
+| Test | Method | Expected Outcome | Result |
+| ---- | ------ | ---------------- | ------ |
+| Category | Try to submit empty form | Form doesn't submit, and displays error message | Pass |
+| Edit| Save changes | state changes and success alert  | Pass |
+| Delte  | delete state | category deleted and success alert  | Pass |
+
+### Filtering Tasks
+| Test | Method | Expected Outcome | Result |
+| ---- | ------ | ---------------- | ------ |
+| Filter by Catergory | Use drop down | Filter by catergory | Pass |
+| Filter by Priority | Use drop down  | Filter by priority  | Pass |
+| Filter by Status | Use drop down  | Filter by status | Pass |
 
 
-### Validator Testing 
+## HTML Validation:
+- HTML Validation by W3C was used to check my HTML code: [W3C Markup Validation Link](https://validator.w3.org/)
+- Testing conducted across all HTML Templates shows no errors but minor some warnings. 
 
-- HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
-- CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
+---
+## CSS Validation:
+- CSS Validation by W3C was used to check my CSS: [W3C CSS Validation Link](https://jigsaw.w3.org/css-validator/)
+- Testing conducted across all CSS Templates shows errors for the webkit -- is a vendor extension.  
 
-### Unfixed Bugs
+---
 
-You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. 
+## JS Validation:
+- JS validation by JSHint was used to check my Javascript code: [JSHint Validation Link](https://jshint.com/)
 
-## Credits 
+---
+## Python Validation:
+- I relied on Linter for my Python Validation
 
-In this section you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-
-You can break the credits section up into Content and Media, depending on what you have included in your project. 
-
-### Content 
-
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-- The photos used on the home and sign up page are from This Open Source site
-- The images used for the gallery page were taken from this other open source site
+## React
+- I relied on eslint for my React Validation
 
 
-Congratulations on completing your Readme, you have made another big stride in the direction of being a developer! 
+---
+## Lighthouse Performance Testing:
+- Results of the Lighthouse Performance testing below:
+- The performance is very low. I have been told this is due to smelly components. Something I will need to work on in the future. 
 
-## Other General Project Advice
+![Lighthouse Performance Test](src/assets/images/screenshots/Lighthouse.png)
 
-Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
 
-- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
-  - Make sure to keep the messages in the imperative mood 
+## Responsiveness:
+- The site has been tested at various screen sizes a demonstration of which can be found [here](http://www.responsinator.com/?url=https%3A%2F%2Ftask-helper.herokuapp.com%2F)
 
-- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
-  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
+---
 
-- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
-  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
-  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
-  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
+## Current Issues known but not yet resolved:
+Making sure that I met my deadline there are a number of thing I will look to improve on in the future. I'm sure there are many more that I have not noticed. 
+Some of the ones I have are: 
+- Site loads to categories and not homepage
+- User can only upload pictures
+- The View Task page looks a bit naff
+- The user can update the task without changing anything
 
-Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
+---
+
+## Personal Credits
+
+- Danny Callaghan. My tutor and mentor, such an amazing teacher  with so much experience. I wish I had met him sooner. 
+- The Code Insitute tutors as also their patience and knowledge knows no end.
+
+## Final Thoughts
+
+Portfolio Project 5 proved a real challenge for me. I really struggled with the initial learning curve and it forced me to find help from tutors and experienced react.js programmers. That said I thoroughly enjoyed creating the website from the ground up and had a few eureka moments that really helped my understanding of react. I still have a LONG way to go before I could say I am confident in what I am doing, but that's why we have people to teach us. 
+
+I would like to thank The Code Institute for providing me with an excellent space to learn. 
+I definitely struggle with imposter syndrome. But as one of my tutors said, “It never goes away and it can be a great motivator to keep learning”
