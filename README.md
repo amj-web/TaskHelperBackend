@@ -4,6 +4,6 @@ The TaskHelper Todo List is a productivity app designed to help the user get org
 
 You can find a link to the Front End and more extensive Readme [here](https://github.com/amj-web/TaskHelper#readme)
 
-##Backend Deployment
+## Backend Deployment
 
-The backend is deployed using.........
+The backend is deployed on Heroku it will on show a JSON message to let the user know that everything is running properly. [Here is a link](https://todo-amj.herokuapp.com/)
