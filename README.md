@@ -7,3 +7,7 @@ You can find a link to the Front End and more extensive Readme [here](https://gi
 ## Backend Deployment
 
 The backend is deployed on Heroku it will on show a JSON message to let the user know that everything is running properly. [Here is a link](https://todo-amj.herokuapp.com/)
+
+## Manual Testing
+
+[JSON file of postman API testing](https://drive.google.com/drive/folders/1hRfG2jJTGtQ9V5LpBQ78m926aFdHkEOr?usp=share_link)
